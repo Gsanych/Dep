@@ -43,7 +43,7 @@ public class DepartmentDaoImpl implements DepDao {
         Connection connection = getInstance().getConnection();
         try {
             PreparedStatement st = connection.prepareStatement("INSERT INTO departments(department) VALUES(?)");
-            //st.setString(1, entity.getNameDep());
+            st.setString(1, entity.getNameDep());
             st.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e);
@@ -60,8 +60,8 @@ public class DepartmentDaoImpl implements DepDao {
         try {
             String sql = "UPDATE departments SET department=? WHERE dept_id =?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            //ps.setString(1, entity.getNameDep());
-            //ps.setInt(2, entity.getId());
+            ps.setString(1, entity.getNameDep());
+            ps.setInt(2, entity.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e);
@@ -76,7 +76,7 @@ public class DepartmentDaoImpl implements DepDao {
         try {
             String sql = "DELETE FROM departments WHERE dept_id=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            //ps.setInt(1, id.getId());
+            ps.setInt(1, id.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new IllegalStateException(e);

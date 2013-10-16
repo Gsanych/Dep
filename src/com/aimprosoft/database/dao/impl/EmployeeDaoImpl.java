@@ -31,7 +31,7 @@ public class EmployeeDaoImpl implements EmpDao {
                 employee.setEmail(rs.getString("email"));
                 employee.setSurname(rs.getString("surname"));
                 employee.setBirthday(rs.getDate("birthday"));
-                //employee.setDepartment(depId);
+                employee.setDepartment(depId);
                 employees.add(employee);
             }
         } catch (SQLException e) {
@@ -47,15 +47,15 @@ public class EmployeeDaoImpl implements EmpDao {
         Connection connection = getInstance().getConnection();
         try {
             PreparedStatement st = connection.prepareStatement("INSERT INTO employee(name,surname,age,email,birthday,dept_id) VALUES(?,?,?,?,?,?)");
-//            st.setString(1, entity.getName());
-//            st.setString(2, entity.getSurname());
-//            st.setInt(3, entity.getAge());
-//            st.setString(4, entity.getEmail());
-//
-//            Date date = new Date(entity.getBirthday().getTime());
-//            st.setDate(5, date);
-//
-//            st.setInt(6, Integer.parseInt(entity.getDepartment()));
+            st.setString(1, entity.getName());
+            st.setString(2, entity.getSurname());
+            st.setInt(3, entity.getAge());
+            st.setString(4, entity.getEmail());
+
+            Date date = new Date(entity.getBirthday().getTime());
+            st.setDate(5, date);
+
+            st.setInt(6, Integer.parseInt(entity.getDepartment()));
 
             st.executeUpdate();
         } catch (SQLException e) {
@@ -73,15 +73,15 @@ public class EmployeeDaoImpl implements EmpDao {
         try{
             String sql="UPDATE employee SET name=?,surname=?,email=?,age=?,birthday=?,dept_id=? WHERE em_id =?";
             PreparedStatement ps = connection.prepareStatement(sql);
-//            ps.setString(1, entity.getName());
-//            ps.setString(2, entity.getSurname());
-//            ps.setString(3, entity.getEmail());
-//            ps.setInt(4, entity.getAge());
-//
-//            Date date = new Date(entity.getBirthday().getTime());
-//            ps.setDate(5, date);
-//            ps.setString(6, entity.getDepartment());
-//            ps.setInt(7, entity.getId());
+            ps.setString(1, entity.getName());
+            ps.setString(2, entity.getSurname());
+            ps.setString(3, entity.getEmail());
+            ps.setInt(4, entity.getAge());
+
+            Date date = new Date(entity.getBirthday().getTime());
+            ps.setDate(5, date);
+            ps.setString(6, entity.getDepartment());
+            ps.setInt(7, entity.getId());
             ps.executeUpdate();
         } catch(SQLException e){
             throw new IllegalStateException(e);
@@ -105,4 +105,4 @@ public class EmployeeDaoImpl implements EmpDao {
         }
     }
     }
-}
+
