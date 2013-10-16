@@ -6,10 +6,10 @@ import com.aimprosoft.database.model.Department;
  * Date: 10/16/13
  * Time: 4:38 PM
  */
-public class Context implements Context<Department> {
-    private ActionStrategy actionStrategy;
+public class ContextDep {
+    private ActionStrategy<Department> actionStrategy;
 
-    public Context() {
+    public ContextDep() {
 
     }
 

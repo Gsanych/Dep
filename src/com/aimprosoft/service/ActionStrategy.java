@@ -13,6 +13,6 @@ public interface ActionStrategy<T> {
 
    // Map<String, ActionStrategy> actions = new HashMap<>();
 
-    public T executeAction(String text, T entity);
+    T executeAction(String text, T entity);
 
 }

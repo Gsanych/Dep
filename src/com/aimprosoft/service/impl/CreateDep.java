@@ -8,7 +8,7 @@ import com.aimprosoft.service.ActionStrategy;
  * Date: 10/16/13
  * Time: 12:07 PM
  */
-public class CreateStrategy implements ActionStrategy<Department> {
+public class CreateDep implements ActionStrategy<Department> {
       private DepartmentDaoImpl departmentDao=new DepartmentDaoImpl();
 
         //  actions.put("create", (ActionStrategy) departmentDao.create((Department) strategy));
